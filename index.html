@@ -581,7 +581,7 @@
     </div>
   </section>
 
-  <!-- ================= REEL / VIDEO SHOWCASE SECTION (Like Video) ================= -->
+  <!-- ================= REEL / VIDEO SHOWCASE SECTION (Real Video Clips) ================= -->
   <section class="py-16 px-4 max-w-5xl mx-auto">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
       <div>
@@ -591,91 +591,101 @@
         </h2>
       </div>
       <p class="text-xs text-neutral-500 max-w-xs">
-        Short simulated walkthroughs showcasing live inbound voice calling, automated booking, and pipeline logic.
+        Real video walkthroughs showcasing live inbound voice calling, automated booking, and pipeline logic.
       </p>
     </div>
 
-    <!-- 3 Vertical Video Mockup Cards -->
+    <!-- 3 Vertical Video Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       
       <!-- Reel 01 -->
       <div class="bg-neutral-950 border border-neutral-800 rounded-3xl p-4 flex flex-col justify-between text-white shadow-xl relative overflow-hidden group">
-        <div class="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-3">
-          <span class="bg-neutral-800/80 px-2 py-0.5 rounded-md text-white font-bold">Reel 01</span>
-          <i data-lucide="volume-2" class="w-3.5 h-3.5 text-neutral-400"></i>
+        <div class="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-3 z-10">
+          <span class="bg-neutral-800/90 px-2.5 py-0.5 rounded-md text-white font-bold border border-neutral-700">Reel 01</span>
+          <button onclick="toggleMute('reel1')" class="w-7 h-7 rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-white flex items-center justify-center transition-all border border-neutral-700 shadow-sm" title="Mute/Unmute">
+            <i data-lucide="volume-x" id="mute-icon-reel1" class="w-3.5 h-3.5 text-neutral-200"></i>
+          </button>
         </div>
 
-        <!-- Simulated Video Preview Box -->
-        <div class="aspect-[9/14] bg-neutral-900 rounded-2xl relative overflow-hidden flex flex-col justify-between p-4 border border-neutral-800">
-          <div class="space-y-2">
-            <span class="inline-block text-[10px] font-mono text-emerald-400 bg-emerald-950/70 border border-emerald-800/60 px-2 py-0.5 rounded-full">
-              Live Voice Agent
-            </span>
-            <div class="text-xs font-bold text-neutral-200">
-              Inbound Salon & Spa Appointment Booking
-            </div>
-          </div>
+        <!-- Video Player Box -->
+        <div class="aspect-[9/14] bg-neutral-900 rounded-2xl relative overflow-hidden flex flex-col justify-between border border-neutral-800 shadow-inner">
+          <video id="video-reel1" class="reel-video w-full h-full object-cover cursor-pointer" data-reel-id="reel1" src="assets/demo-reel.mp4" playsinline preload="metadata" loop muted onclick="togglePlay('reel1')"></video>
 
-          <!-- Central Play Simulation -->
-          <div class="flex flex-col items-center justify-center my-auto">
-            <div class="w-14 h-14 rounded-full bg-rose-600/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
+          <!-- Central Play/Pause Overlay -->
+          <div id="play-btn-reel1" onclick="togglePlay('reel1')" class="absolute inset-0 flex flex-col items-center justify-center bg-black/45 transition-opacity duration-300 cursor-pointer group-hover:bg-black/35">
+            <div class="w-14 h-14 rounded-full bg-rose-600/95 text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform">
               <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
             </div>
-            <span class="text-[11px] font-mono text-neutral-400 mt-2">Listen to Live Call</span>
+            <span class="text-[11px] font-mono text-white/95 mt-2 font-medium tracking-tight">Watch Demo Clip</span>
           </div>
 
-          <!-- Video Progress Bar -->
-          <div class="space-y-1">
-            <div class="flex justify-between text-[9px] font-mono text-neutral-500">
-              <span>0:14</span>
-              <span>1:05</span>
+          <!-- Bottom Video Info & Progress Bar -->
+          <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none">
+            <div class="space-y-1 mb-2.5">
+              <span class="inline-block text-[10px] font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-800/80 px-2 py-0.5 rounded-full">
+                AI Voice Agent
+              </span>
+              <div class="text-xs font-bold text-white drop-shadow-sm">
+                Inbound Booking & Lead Qualification
+              </div>
             </div>
-            <div class="w-full bg-neutral-800 h-1 rounded-full overflow-hidden">
-              <div class="bg-rose-500 h-full w-2/5"></div>
+            <div class="space-y-1">
+              <div class="flex justify-between text-[9px] font-mono text-neutral-300">
+                <span id="time-current-reel1">0:00</span>
+                <span id="time-duration-reel1">0:50</span>
+              </div>
+              <div class="w-full bg-white/20 h-1.5 rounded-full overflow-hidden">
+                <div id="progress-reel1" class="bg-rose-500 h-full w-0 transition-all duration-100"></div>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="mt-4">
           <h4 class="font-bold text-sm text-neutral-100">Appointment Voice Agent</h4>
-          <p class="text-xs text-neutral-400 mt-1">Answers customer phone calls, checks slot availability, and sends SMS confirmation.</p>
+          <p class="text-xs text-neutral-400 mt-1">Answers customer phone calls, checks slot availability, and locks bookings in real time.</p>
         </div>
       </div>
 
       <!-- Reel 02 -->
       <div class="bg-neutral-950 border border-neutral-800 rounded-3xl p-4 flex flex-col justify-between text-white shadow-xl relative overflow-hidden group">
-        <div class="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-3">
-          <span class="bg-neutral-800/80 px-2 py-0.5 rounded-md text-white font-bold">Reel 02</span>
-          <i data-lucide="volume-2" class="w-3.5 h-3.5 text-neutral-400"></i>
+        <div class="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-3 z-10">
+          <span class="bg-neutral-800/90 px-2.5 py-0.5 rounded-md text-white font-bold border border-neutral-700">Reel 02</span>
+          <button onclick="toggleMute('reel2')" class="w-7 h-7 rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-white flex items-center justify-center transition-all border border-neutral-700 shadow-sm" title="Mute/Unmute">
+            <i data-lucide="volume-x" id="mute-icon-reel2" class="w-3.5 h-3.5 text-neutral-200"></i>
+          </button>
         </div>
 
-        <!-- Simulated Video Preview Box -->
-        <div class="aspect-[9/14] bg-neutral-900 rounded-2xl relative overflow-hidden flex flex-col justify-between p-4 border border-neutral-800">
-          <div class="space-y-2">
-            <span class="inline-block text-[10px] font-mono text-sky-400 bg-sky-950/70 border border-sky-800/60 px-2 py-0.5 rounded-full">
-              Pipeline Automation
-            </span>
-            <div class="text-xs font-bold text-neutral-200">
-              Lead Qualification & WhatsApp Routing
-            </div>
-          </div>
+        <!-- Video Player Box -->
+        <div class="aspect-[9/14] bg-neutral-900 rounded-2xl relative overflow-hidden flex flex-col justify-between border border-neutral-800 shadow-inner">
+          <video id="video-reel2" class="reel-video w-full h-full object-cover cursor-pointer" data-reel-id="reel2" src="assets/demo-reel.mp4" playsinline preload="metadata" loop muted onclick="togglePlay('reel2')"></video>
 
-          <!-- Central Play Simulation -->
-          <div class="flex flex-col items-center justify-center my-auto">
-            <div class="w-14 h-14 rounded-full bg-rose-600/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
+          <!-- Central Play/Pause Overlay -->
+          <div id="play-btn-reel2" onclick="togglePlay('reel2')" class="absolute inset-0 flex flex-col items-center justify-center bg-black/45 transition-opacity duration-300 cursor-pointer group-hover:bg-black/35">
+            <div class="w-14 h-14 rounded-full bg-rose-600/95 text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform">
               <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
             </div>
-            <span class="text-[11px] font-mono text-neutral-400 mt-2">See n8n & Make Workflow</span>
+            <span class="text-[11px] font-mono text-white/95 mt-2 font-medium tracking-tight">Watch Demo Clip</span>
           </div>
 
-          <!-- Video Progress Bar -->
-          <div class="space-y-1">
-            <div class="flex justify-between text-[9px] font-mono text-neutral-500">
-              <span>0:32</span>
-              <span>1:20</span>
+          <!-- Bottom Video Info & Progress Bar -->
+          <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none">
+            <div class="space-y-1 mb-2.5">
+              <span class="inline-block text-[10px] font-mono text-sky-400 bg-sky-950/80 border border-sky-800/80 px-2 py-0.5 rounded-full">
+                Pipeline Automation
+              </span>
+              <div class="text-xs font-bold text-white drop-shadow-sm">
+                Lead Flow & CRM Integration
+              </div>
             </div>
-            <div class="w-full bg-neutral-800 h-1 rounded-full overflow-hidden">
-              <div class="bg-rose-500 h-full w-3/5"></div>
+            <div class="space-y-1">
+              <div class="flex justify-between text-[9px] font-mono text-neutral-300">
+                <span id="time-current-reel2">0:00</span>
+                <span id="time-duration-reel2">0:50</span>
+              </div>
+              <div class="w-full bg-white/20 h-1.5 rounded-full overflow-hidden">
+                <div id="progress-reel2" class="bg-rose-500 h-full w-0 transition-all duration-100"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -688,38 +698,43 @@
 
       <!-- Reel 03 -->
       <div class="bg-neutral-950 border border-neutral-800 rounded-3xl p-4 flex flex-col justify-between text-white shadow-xl relative overflow-hidden group">
-        <div class="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-3">
-          <span class="bg-neutral-800/80 px-2 py-0.5 rounded-md text-white font-bold">Reel 03</span>
-          <i data-lucide="volume-2" class="w-3.5 h-3.5 text-neutral-400"></i>
+        <div class="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-3 z-10">
+          <span class="bg-neutral-800/90 px-2.5 py-0.5 rounded-md text-white font-bold border border-neutral-700">Reel 03</span>
+          <button onclick="toggleMute('reel3')" class="w-7 h-7 rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-white flex items-center justify-center transition-all border border-neutral-700 shadow-sm" title="Mute/Unmute">
+            <i data-lucide="volume-x" id="mute-icon-reel3" class="w-3.5 h-3.5 text-neutral-200"></i>
+          </button>
         </div>
 
-        <!-- Simulated Video Preview Box -->
-        <div class="aspect-[9/14] bg-neutral-900 rounded-2xl relative overflow-hidden flex flex-col justify-between p-4 border border-neutral-800">
-          <div class="space-y-2">
-            <span class="inline-block text-[10px] font-mono text-amber-400 bg-amber-950/70 border border-amber-800/60 px-2 py-0.5 rounded-full">
-              Full Stack App
-            </span>
-            <div class="text-xs font-bold text-neutral-200">
-              Modern E-Commerce & Inventory Sync
-            </div>
-          </div>
+        <!-- Video Player Box -->
+        <div class="aspect-[9/14] bg-neutral-900 rounded-2xl relative overflow-hidden flex flex-col justify-between border border-neutral-800 shadow-inner">
+          <video id="video-reel3" class="reel-video w-full h-full object-cover cursor-pointer" data-reel-id="reel3" src="assets/demo-reel.mp4" playsinline preload="metadata" loop muted onclick="togglePlay('reel3')"></video>
 
-          <!-- Central Play Simulation -->
-          <div class="flex flex-col items-center justify-center my-auto">
-            <div class="w-14 h-14 rounded-full bg-rose-600/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
+          <!-- Central Play/Pause Overlay -->
+          <div id="play-btn-reel3" onclick="togglePlay('reel3')" class="absolute inset-0 flex flex-col items-center justify-center bg-black/45 transition-opacity duration-300 cursor-pointer group-hover:bg-black/35">
+            <div class="w-14 h-14 rounded-full bg-rose-600/95 text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform">
               <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
             </div>
-            <span class="text-[11px] font-mono text-neutral-400 mt-2">Product Tour</span>
+            <span class="text-[11px] font-mono text-white/95 mt-2 font-medium tracking-tight">Watch Demo Clip</span>
           </div>
 
-          <!-- Video Progress Bar -->
-          <div class="space-y-1">
-            <div class="flex justify-between text-[9px] font-mono text-neutral-500">
-              <span>0:45</span>
-              <span>1:15</span>
+          <!-- Bottom Video Info & Progress Bar -->
+          <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none">
+            <div class="space-y-1 mb-2.5">
+              <span class="inline-block text-[10px] font-mono text-amber-400 bg-amber-950/80 border border-amber-800/80 px-2 py-0.5 rounded-full">
+                Full Stack Build
+              </span>
+              <div class="text-xs font-bold text-white drop-shadow-sm">
+                Production Web App Walkthrough
+              </div>
             </div>
-            <div class="w-full bg-neutral-800 h-1 rounded-full overflow-hidden">
-              <div class="bg-rose-500 h-full w-4/5"></div>
+            <div class="space-y-1">
+              <div class="flex justify-between text-[9px] font-mono text-neutral-300">
+                <span id="time-current-reel3">0:00</span>
+                <span id="time-duration-reel3">0:50</span>
+              </div>
+              <div class="w-full bg-white/20 h-1.5 rounded-full overflow-hidden">
+                <div id="progress-reel3" class="bg-rose-500 h-full w-0 transition-all duration-100"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -1171,6 +1186,84 @@
       // Offset top position slightly so lower cards peak nicely
       card.style.top = `${100 + index * 24}px`;
     });
+
+    /* -------------------------------------------------------------
+       5. INTERACTIVE VIDEO REELS CONTROLLER
+       ------------------------------------------------------------- */
+    function togglePlay(reelId) {
+      const video = document.getElementById(`video-${reelId}`);
+      const overlay = document.getElementById(`play-btn-${reelId}`);
+      if (!video) return;
+
+      if (video.paused) {
+        // Pause all other reels to avoid simultaneous audio/video clash
+        document.querySelectorAll('.reel-video').forEach((v) => {
+          if (v !== video) {
+            v.pause();
+            const otherId = v.dataset.reelId;
+            const otherBtn = document.getElementById(`play-btn-${otherId}`);
+            if (otherBtn) {
+              otherBtn.classList.remove('opacity-0', 'pointer-events-none');
+            }
+          }
+        });
+
+        video.play().then(() => {
+          overlay.classList.add('opacity-0', 'pointer-events-none');
+        }).catch((err) => {
+          console.log('Video play interrupted or muted required', err);
+        });
+      } else {
+        video.pause();
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+      }
+    }
+
+    function toggleMute(reelId) {
+      const video = document.getElementById(`video-${reelId}`);
+      const icon = document.getElementById(`mute-icon-${reelId}`);
+      if (!video) return;
+
+      video.muted = !video.muted;
+      if (video.muted) {
+        icon.setAttribute('data-lucide', 'volume-x');
+      } else {
+        icon.setAttribute('data-lucide', 'volume-2');
+      }
+      lucide.createIcons();
+    }
+
+    function setupReelProgress(reelId) {
+      const video = document.getElementById(`video-${reelId}`);
+      const progress = document.getElementById(`progress-${reelId}`);
+      const timeCurrent = document.getElementById(`time-current-${reelId}`);
+      const timeDuration = document.getElementById(`time-duration-${reelId}`);
+
+      if (!video) return;
+
+      video.addEventListener('timeupdate', () => {
+        if (video.duration) {
+          const pct = (video.currentTime / video.duration) * 100;
+          if (progress) progress.style.width = `${pct}%`;
+          const curM = Math.floor(video.currentTime / 60);
+          const curS = Math.floor(video.currentTime % 60).toString().padStart(2, '0');
+          if (timeCurrent) timeCurrent.innerText = `${curM}:${curS}`;
+        }
+      });
+
+      video.addEventListener('loadedmetadata', () => {
+        const durM = Math.floor(video.duration / 60);
+        const durS = Math.floor(video.duration % 60).toString().padStart(2, '0');
+        if (timeDuration) timeDuration.innerText = `${durM}:${durS}`;
+      });
+
+      video.addEventListener('ended', () => {
+        const overlay = document.getElementById(`play-btn-${reelId}`);
+        if (overlay) overlay.classList.remove('opacity-0', 'pointer-events-none');
+      });
+    }
+
+    ['reel1', 'reel2', 'reel3'].forEach(setupReelProgress);
   </script>
 </body>
 </html>
