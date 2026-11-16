@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TNS Agency | Salman Ahmad - Full Stack Developer & AI Automation Specialist</title>
+  <meta name="description" content="TNS Agency: We build AI calling agents, intelligent workflow automations, and high-performance websites that answer, follow up, and scale your business 24/7.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cream: '#f5f4ed',
+              dark: '#111215',
+              surface: '#1c1d22',
+              card: '#24262d',
+              accent: '#2563eb',
+              accentGlow: '#38bdf8',
+              crimson: '#dc2626',
+              border: '#e4e2d7',
+              darkBorder: '#2e3039'
+            }
+          },
+          animation: {
+            'marquee': 'marquee 28s linear infinite',
+            'pulse-subtle': 'pulseSubtle 2.5s ease-in-out infinite',
+            'ripple': 'ripple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            pulseSubtle: {
+              '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+              '50%': { opacity: '0.85', transform: 'scale(1.02)' },
+            },
+            ripple: {
+              '0%': { transform: 'scale(0.8)', opacity: '1' },
+              '100%': { transform: 'scale(2.2)', opacity: '0' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Custom Styling for Video Match */
+    body {
+      background-color: #f5f4ee;
+      color: #121316;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      selection-background-color: #111215;
+      selection-color: #ffffff;
+    }
+
+    ::selection {
+      background-color: #111215;
+      color: #ffffff;
+    }
+
+    /* Word by Word Scroll Reveal Words */
+    .reveal-word {
+      opacity: 0.18;
+      transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+      display: inline-block;
+      margin-right: 0.28em;
+    }
+    .reveal-word.active {
+      opacity: 1;
+      transform: translateY(0);
+      color: #0f1012;
+    }
+
+    /* Sticky Stacking Cards CSS */
+    .stack-card {
+      position: sticky;
+      top: 100px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      will-change: transform;
+    }
+
+    /* Hide scrollbars for reels */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Waveform visualizer bars */
+    .bar {
+      width: 3px;
+      background: #22c55e;
+      border-radius: 999px;
+      animation: soundBar 1.2s ease-in-out infinite alternate;
+    }
+    @keyframes soundBar {
+      0% { height: 4px; }
+      100% { height: 26px; }
+    }
+    .bar:nth-child(1) { animation-delay: 0.1s; }
+    .bar:nth-child(2) { animation-delay: 0.3s; }
+    .bar:nth-child(3) { animation-delay: 0.15s; }
+    .bar:nth-child(4) { animation-delay: 0.4s; }
+    .bar:nth-child(5) { animation-delay: 0.25s; }
+    .bar:nth-child(6) { animation-delay: 0.5s; }
+    .bar:nth-child(7) { animation-delay: 0.35s; }
+    .bar:nth-child(8) { animation-delay: 0.2s; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+    <nav class="bg-white/85 backdrop-blur-md border border-neutral-200/90 shadow-sm rounded-full px-4 py-2.5 flex items-center justify-between gap-6 max-w-4xl w-full">
+      <!-- Logo + Name -->
+      <a href="#hero" class="flex items-center gap-2.5 group">
+        <img src="assets/tns-logo.jpg" alt="TNS Agency" class="w-8 h-8 rounded-full object-cover border border-neutral-300 shadow-sm group-hover:scale-105 transition-transform">
+        <span class="font-display font-bold text-sm tracking-tight text-neutral-900">TNS AGENCY</span>
+      </a>
+
+      <!-- Nav Links -->
+      <div class="hidden md:flex items-center gap-6 text-xs font-semibold text-neutral-600">
+        <a href="#services" class="hover:text-neutral-950 transition-colors">Services</a>
+        <a href="#voice-agents" class="hover:text-neutral-950 transition-colors">Voice Agents</a>
+        <a href="#workflows" class="hover:text-neutral-950 transition-colors">Workflows</a>
+        <a href="#websites" class="hover:text-neutral-950 transition-colors">Websites</a>
+        <a href="#reviews" class="hover:text-neutral-950 transition-colors">Reviews</a>
+      </div>
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-2">
+        <a href="https://wa.me/923287205940" target="_blank" class="bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-semibold px-4 py-2 rounded-full transition-all shadow-sm flex items-center gap-1.5 hover:shadow">
+          <span>Let's talk</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="hero" class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Hero Left: Content -->
+      <div class="lg:col-span-7 flex flex-col items-start space-y-6">
+        
+        <!-- Status Pill -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-200/70 border border-neutral-300 text-xs font-medium text-neutral-800">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Taking on new projects</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-neutral-950 leading-[1.12]">
+          Let AI Answer Calls & Automate the Rest
+        </h1>
+
+        <!-- Subheading -->
+        <p class="text-base sm:text-lg text-neutral-600 max-w-xl font-normal leading-relaxed">
+          I build human-like AI calling agents, intelligent automation pipelines, and high-performance websites that answer customer inquiries, follow up, and book for your business around the clock.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="mailto:salmankhan7288191@gmail.com" class="inline-flex items-center gap-2 bg-neutral-950 hover:bg-neutral-800 text-white font-medium text-sm px-6 py-3.5 rounded-full transition-all shadow-sm">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <span>Email me</span>
+          </a>
+          <a href="#projects" class="inline-flex items-center gap-2 bg-white hover:bg-neutral-100 text-neutral-900 border border-neutral-300 font-medium text-sm px-6 py-3.5 rounded-full transition-all shadow-xs">
+            <span>See my work</span>
+            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Micro Info -->
+        <div class="pt-4 flex items-center gap-4 text-xs text-neutral-500">
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
+            <span>Direct WhatsApp: 03287205940</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="zap" class="w-4 h-4 text-amber-500"></i>
+            <span>Fast Turnaround</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Right: Interactive Call Card (Popup Experience from Video) -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-sm bg-neutral-950 text-white rounded-3xl p-6 shadow-2xl border border-neutral-800 relative overflow-hidden transition-all duration-300" id="phoneCard">
+          
+          <!-- Subtle Top Indicator / Speaker -->
+          <div class="flex justify-between items-center text-[10px] text-neutral-400 font-mono mb-6">
+            <span id="callStatusIndicator" class="flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-neutral-500 animate-ping"></span>
+              INCOMING CALL
+            </span>
+            <span class="flex items-center gap-1">
+              <i data-lucide="wifi" class="w-3 h-3"></i>
+              <i data-lucide="battery-charging" class="w-3.5 h-3.5"></i>
+            </span>
+          </div>
+
+          <!-- STATE 1: INCOMING CALL (Default) -->
+          <div id="incomingCallView" class="flex flex-col items-center text-center py-4">
+            <!-- Avatar with Rings -->
+            <div class="relative mb-5">
+              <div class="absolute -inset-3 rounded-full bg-emerald-500/20 animate-ping pointer-events-none"></div>
+              <div class="w-24 h-24 rounded-full border-2 border-emerald-400 p-0.5 bg-neutral-900 overflow-hidden shadow-lg relative z-10 flex items-center justify-center">
+                <img src="assets/tns-logo.jpg" alt="Salman Ahmad - TNS Agency" class="w-full h-full object-cover">
+              </div>
+            </div>
+
+            <!-- Caller Info -->
+            <h3 class="font-display font-bold text-xl text-white tracking-tight">Salman Ahmad</h3>
+            <p class="text-xs text-neutral-400 mt-1 max-w-[240px]">TNS Agency • AI Specialist & Web Developer</p>
+            <p class="text-[11px] text-emerald-400 font-mono mt-3 uppercase tracking-wider bg-emerald-950/60 border border-emerald-800/60 px-2.5 py-0.5 rounded-full">
+              Incoming Live Simulation
+            </p>
+
+            <!-- Call Buttons -->
+            <div class="flex items-center justify-center gap-8 mt-8">
+              <!-- Decline Button -->
+              <div class="flex flex-col items-center gap-1.5">
+                <button onclick="handleDeclineCall()" class="w-13 h-13 w-14 h-14 rounded-full bg-neutral-800 hover:bg-neutral-700 text-neutral-300 flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-md" title="Mute/Decline">
+                  <i data-lucide="phone-off" class="w-6 h-6 text-rose-400"></i>
+                </button>
+                <span class="text-[10px] text-neutral-400 font-medium">Decline</span>
+              </div>
+
+              <!-- Accept Button -->
+              <div class="flex flex-col items-center gap-1.5">
+                <button onclick="handleAcceptCall()" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-neutral-950 flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-lg shadow-emerald-500/40 relative group" title="Accept Call">
+                  <span class="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-40"></span>
+                  <i data-lucide="phone-call" class="w-6 h-6 text-white relative z-10"></i>
+                </button>
+                <span class="text-[10px] text-emerald-400 font-semibold">Accept</span>
+              </div>
+            </div>
+
+            <p class="text-[11px] text-neutral-400 mt-5">Click <strong class="text-emerald-400">Accept</strong> to start interactive demo</p>
+          </div>
+
+          <!-- STATE 2: CONNECTED (After Accept) -->
+          <div id="connectedCallView" class="hidden flex-col items-center text-center py-2">
+            
+            <!-- Connection Header -->
+            <div class="flex items-center justify-between w-full border-b border-neutral-800/80 pb-3 mb-4">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-xs font-mono text-emerald-400 font-semibold" id="callTimer">Connected 0:00</span>
+              </div>
+              <!-- Mini Audio Waveform -->
+              <div class="flex items-center gap-1 h-6">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+            </div>
+
+            <!-- Dialogue Bubble -->
+            <div class="bg-neutral-900 border border-neutral-800 rounded-2xl p-4 text-left w-full mb-4 shadow-inner">
+              <div class="flex items-center gap-2 mb-2">
+                <img src="assets/tns-logo.jpg" class="w-5 h-5 rounded-full object-cover">
+                <span class="text-xs font-bold text-white">Salman Ahmad:</span>
+              </div>
+              <p class="text-sm text-neutral-200 font-medium leading-relaxed">
+                "Hi, my name is Salman Ahmad. What should we automate first?"
+              </p>
+            </div>
+
+            <!-- Interactive Decision Options -->
+            <div class="w-full space-y-2 mb-5">
+              <button onclick="selectCallOption('voice-agents')" class="w-full bg-neutral-900 hover:bg-neutral-850 hover:border-neutral-600 border border-neutral-800 p-3 rounded-xl text-left text-xs font-semibold text-neutral-200 flex items-center justify-between group transition-all">
+                <span class="flex items-center gap-2">
+                  <i data-lucide="mic" class="w-3.5 h-3.5 text-rose-400 group-hover:scale-110 transition-transform"></i>
+                  <span>AI Voice Agents</span>
+                </span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-neutral-500 group-hover:text-white transition-colors"></i>
+              </button>
+
+              <button onclick="selectCallOption('workflows')" class="w-full bg-neutral-900 hover:bg-neutral-850 hover:border-neutral-600 border border-neutral-800 p-3 rounded-xl text-left text-xs font-semibold text-neutral-200 flex items-center justify-between group transition-all">
+                <span class="flex items-center gap-2">
+                  <i data-lucide="git-merge" class="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                  <span>Automation Workflows</span>
+                </span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-neutral-500 group-hover:text-white transition-colors"></i>
+              </button>
+
+              <button onclick="selectCallOption('websites')" class="w-full bg-neutral-900 hover:bg-neutral-850 hover:border-neutral-600 border border-neutral-800 p-3 rounded-xl text-left text-xs font-semibold text-neutral-200 flex items-center justify-between group transition-all">
+                <span class="flex items-center gap-2">
+                  <i data-lucide="layout" class="w-3.5 h-3.5 text-sky-400 group-hover:scale-110 transition-transform"></i>
+                  <span>Websites & Dashboards</span>
+                </span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-neutral-500 group-hover:text-white transition-colors"></i>
+              </button>
+            </div>
+
+            <!-- Bottom Action: WhatsApp / Email directly -->
+            <div class="grid grid-cols-2 gap-2 w-full">
+              <a href="https://wa.me/923287205940?text=Hi%20Salman,%20I%20am%20interested%20in%20your%20services" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                <span>WhatsApp</span>
+              </a>
+              <button onclick="handleEndCall()" class="bg-rose-600 hover:bg-rose-500 text-white text-xs font-semibold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm">
+                <i data-lucide="phone-off" class="w-3.5 h-3.5"></i>
+                <span>End Call</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= INFINITE TECH STACK MARQUEE ================= -->
+  <section class="border-y border-neutral-300/80 bg-neutral-200/40 py-4 overflow-hidden select-none">
+    <div class="flex w-[200%] animate-marquee items-center text-xs sm:text-sm font-semibold tracking-wider text-neutral-700 uppercase">
+      <!-- Group 1 -->
+      <div class="flex items-center gap-8 whitespace-nowrap px-4">
+        <span>Next.js</span>
+        <span class="text-neutral-400">•</span>
+        <span>React</span>
+        <span class="text-neutral-400">•</span>
+        <span>TypeScript</span>
+        <span class="text-neutral-400">•</span>
+        <span>Tailwind CSS</span>
+        <span class="text-neutral-400">•</span>
+        <span>Python</span>
+        <span class="text-neutral-400">•</span>
+        <span>AI Voice Agents (Vapi / Retell)</span>
+        <span class="text-neutral-400">•</span>
+        <span>Make.com / n8n</span>
+        <span class="text-neutral-400">•</span>
+        <span>FastAPI</span>
+        <span class="text-neutral-400">•</span>
+        <span>Supabase</span>
+        <span class="text-neutral-400">•</span>
+        <span>Netlify & Vercel</span>
+        <span class="text-neutral-400">•</span>
+        <span>CRM Automations</span>
+        <span class="text-neutral-400">•</span>
+      </div>
+      <!-- Group 2 (Duplicate for smooth seamless loop) -->
+      <div class="flex items-center gap-8 whitespace-nowrap px-4" aria-hidden="true">
+        <span>Next.js</span>
+        <span class="text-neutral-400">•</span>
+        <span>React</span>
+        <span class="text-neutral-400">•</span>
+        <span>TypeScript</span>
+        <span class="text-neutral-400">•</span>
+        <span>Tailwind CSS</span>
+        <span class="text-neutral-400">•</span>
+        <span>Python</span>
+        <span class="text-neutral-400">•</span>
+        <span>AI Voice Agents (Vapi / Retell)</span>
+        <span class="text-neutral-400">•</span>
+        <span>Make.com / n8n</span>
+        <span class="text-neutral-400">•</span>
+        <span>FastAPI</span>
+        <span class="text-neutral-400">•</span>
+        <span>Supabase</span>
+        <span class="text-neutral-400">•</span>
+        <span>Netlify & Vercel</span>
+        <span class="text-neutral-400">•</span>
+        <span>CRM Automations</span>
+        <span class="text-neutral-400">•</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORD BY WORD SCROLL REVEAL SECTION ================= -->
+  <section class="py-24 sm:py-32 px-4 max-w-5xl mx-auto" id="philosophy">
+    <div class="text-xs uppercase tracking-widest text-neutral-500 font-bold mb-4 font-mono">
+      // CORE VALUE STATEMENT
+    </div>
+    
+    <!-- Word Reveal Container -->
+    <h2 id="revealText" class="text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight text-neutral-900">
+      Most businesses lose countless hours on repetitive busywork. At TNS Agency, I build custom AI voice agents, autonomous pipelines, and fast modern websites that qualify leads, close appointments, and scale your operations around the clock.
+    </h2>
+
+    <div class="mt-8 flex items-center gap-3 text-sm text-neutral-500 font-medium">
+      <span class="w-8 h-[2px] bg-neutral-900"></span>
+      <span>Three core capabilities engineered to generate predictable growth.</span>
+    </div>
+  </section>
+
+  <!-- ================= STICKY STACKING SERVICES SECTION ================= -->
+  <section id="services" class="py-16 px-4 max-w-5xl mx-auto">
+    <div class="mb-12">
+      <span class="text-xs font-mono font-bold uppercase tracking-widest text-neutral-500">// SERVICES</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-950 mt-1">
+        Three things I do really well.
+      </h2>
+      <p class="text-neutral-600 text-base mt-2">Scroll down to see each specialized service stack up.</p>
+    </div>
+
+    <!-- Cards Container -->
+    <div class="space-y-12 pb-24">
+
+      <!-- SERVICE CARD 1: AI VOICE AGENTS (Red Accent like video) -->
+      <div id="voice-agents" class="stack-card bg-[#8f1d1d] text-white rounded-3xl p-8 sm:p-12 shadow-xl border border-red-900/50">
+        <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
+          
+          <!-- Card Left -->
+          <div class="space-y-4 max-w-md">
+            <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/20">
+              <i data-lucide="phone-forwarded" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">AI Voice Agents</h3>
+            <p class="text-white/80 text-sm sm:text-base leading-relaxed">
+              Human-grade conversational voice assistants that answer incoming calls, book appointments into your calendar, and qualify outbound leads in real time.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="text-xs bg-white/15 px-3 py-1 rounded-full font-medium">Vapi</span>
+              <span class="text-xs bg-white/15 px-3 py-1 rounded-full font-medium">Retell AI</span>
+              <span class="text-xs bg-white/15 px-3 py-1 rounded-full font-medium">Twilio</span>
+              <span class="text-xs bg-white/15 px-3 py-1 rounded-full font-medium">Custom Prompts</span>
+            </div>
+          </div>
+
+          <!-- Card Right: Deliverables Checklist -->
+          <div class="bg-black/20 border border-white/15 rounded-2xl p-6 md:w-80 space-y-4 backdrop-blur-sm">
+            <h4 class="text-xs uppercase tracking-wider font-mono text-white/70">Core Deliverables</h4>
+            <ul class="space-y-3 text-sm">
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-300 mt-0.5 shrink-0"></i>
+                <span>Appointment booking with instant calendar lock</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-300 mt-0.5 shrink-0"></i>
+                <span>Order confirmation & status inquiries</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-300 mt-0.5 shrink-0"></i>
+                <span>24/7 Intelligent lead qualification</span>
+              </li>
+            </ul>
+
+            <div class="pt-2">
+              <a href="https://wa.me/923287205940?text=I%20want%20to%20build%20an%20AI%20Voice%20Agent" target="_blank" class="inline-flex items-center justify-center w-full gap-2 bg-white text-neutral-950 font-semibold text-xs py-2.5 rounded-xl hover:bg-neutral-100 transition-colors">
+                <span>Deploy Voice Agent</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SERVICE CARD 2: AI AUTOMATION & AGENTS (Dark Surface) -->
+      <div id="workflows" class="stack-card bg-[#15171c] text-white rounded-3xl p-8 sm:p-12 shadow-xl border border-neutral-800">
+        <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
+          
+          <!-- Card Left -->
+          <div class="space-y-4 max-w-md">
+            <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/15">
+              <i data-lucide="cpu" class="w-6 h-6 text-emerald-400"></i>
+            </div>
+            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">AI Automation & Agents</h3>
+            <p class="text-neutral-400 text-sm sm:text-base leading-relaxed">
+              Autonomous multi-agent workflows that connect your sales pipelines, generate content, and sync data between CRMs without any manual intervention.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-full font-medium">Make.com</span>
+              <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-full font-medium">n8n</span>
+              <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-full font-medium">Python</span>
+              <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-full font-medium">OpenAI / Claude</span>
+            </div>
+          </div>
+
+          <!-- Card Right: Deliverables Checklist -->
+          <div class="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 md:w-80 space-y-4">
+            <h4 class="text-xs uppercase tracking-wider font-mono text-neutral-400">Core Deliverables</h4>
+            <ul class="space-y-3 text-sm text-neutral-200">
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                <span>Automated outreach pipeline & follow-ups</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                <span>Content generation & auto-publishing system</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                <span>Real-time CRM & calendar synchronization</span>
+              </li>
+            </ul>
+
+            <div class="pt-2">
+              <a href="https://wa.me/923287205940?text=I%20want%20to%20automate%20my%20workflows" target="_blank" class="inline-flex items-center justify-center w-full gap-2 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-semibold text-xs py-2.5 rounded-xl transition-colors">
+                <span>Build Automation Flow</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SERVICE CARD 3: WEBSITES & DASHBOARDS (Clean Off-White) -->
+      <div id="websites" class="stack-card bg-white text-neutral-900 rounded-3xl p-8 sm:p-12 shadow-xl border border-neutral-300">
+        <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
+          
+          <!-- Card Left -->
+          <div class="space-y-4 max-w-md">
+            <div class="w-12 h-12 rounded-2xl bg-neutral-100 flex items-center justify-center border border-neutral-200">
+              <i data-lucide="globe" class="w-6 h-6 text-neutral-900"></i>
+            </div>
+            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">Websites & Dashboards</h3>
+            <p class="text-neutral-600 text-sm sm:text-base leading-relaxed">
+              Fast, conversion-focused business websites and powerful administrative dashboards built with Next.js, React, Tailwind CSS, and headless backends.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="text-xs bg-neutral-100 text-neutral-800 px-3 py-1 rounded-full font-medium">Next.js</span>
+              <span class="text-xs bg-neutral-100 text-neutral-800 px-3 py-1 rounded-full font-medium">React</span>
+              <span class="text-xs bg-neutral-100 text-neutral-800 px-3 py-1 rounded-full font-medium">Supabase</span>
+              <span class="text-xs bg-neutral-100 text-neutral-800 px-3 py-1 rounded-full font-medium">Core Web Vitals</span>
+            </div>
+          </div>
+
+          <!-- Card Right: Deliverables Checklist -->
+          <div class="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 md:w-80 space-y-4">
+            <h4 class="text-xs uppercase tracking-wider font-mono text-neutral-500">Core Deliverables</h4>
+            <ul class="space-y-3 text-sm text-neutral-800">
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 mt-0.5 shrink-0"></i>
+                <span>High-converting business websites</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 mt-0.5 shrink-0"></i>
+                <span>Custom admin portals & internal dashboards</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 mt-0.5 shrink-0"></i>
+                <span>Technical SEO & sub-second loading speed</span>
+              </li>
+            </ul>
+
+            <div class="pt-2">
+              <a href="https://wa.me/923287205940?text=I%20need%20a%20new%20website%20or%20dashboard" target="_blank" class="inline-flex items-center justify-center w-full gap-2 bg-neutral-950 hover:bg-neutral-800 text-white font-semibold text-xs py-2.5 rounded-xl transition-colors">
+                <span>Request Website Build</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= REEL / VIDEO SHOWCASE SECTION (Like Video) ================= -->
+  <section class="py-16 px-4 max-w-5xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div>
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-neutral-500">// DEMO REELS</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-950">
+          Watch AI Systems in Action
+        </h2>
+      </div>
+      <p class="text-xs text-neutral-500 max-w-xs">
+        Short simulated walkthroughs showcasing live inbound voice calling, automated booking, and pipeline logic.
+      </p>
+    </div>
+
+    <!-- 3 Vertical Video Mockup Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Reel 01 -->
+      <div class="bg-neutral-950 border border-neutral-800 rounded-3xl p-4 flex flex-col justify-between text-white shadow-xl relative overflow-hidden group">
+        <div class="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-3">
+          <span class="bg-neutral-800/80 px-2 py-0.5 rounded-md text-white font-bold">Reel 01</span>
+          <i data-lucide="volume-2" class="w-3.5 h-3.5 text-neutral-400"></i>
+        </div>
+
+        <!-- Simulated Video Preview Box -->
+        <div class="aspect-[9/14] bg-neutral-900 rounded-2xl relative overflow-hidden flex flex-col justify-between p-4 border border-neutral-800">
+          <div class="space-y-2">
+            <span class="inline-block text-[10px] font-mono text-emerald-400 bg-emerald-950/70 border border-emerald-800/60 px-2 py-0.5 rounded-full">
+              Live Voice Agent
+            </span>
+            <div class="text-xs font-bold text-neutral-200">
+              Inbound Salon & Spa Appointment Booking
+            </div>
+          </div>
+
+          <!-- Central Play Simulation -->
+          <div class="flex flex-col items-center justify-center my-auto">
+            <div class="w-14 h-14 rounded-full bg-rose-600/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
+              <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
+            </div>
+            <span class="text-[11px] font-mono text-neutral-400 mt-2">Listen to Live Call</span>
+          </div>
+
+          <!-- Video Progress Bar -->
+          <div class="space-y-1">
+            <div class="flex justify-between text-[9px] font-mono text-neutral-500">
+              <span>0:14</span>
+              <span>1:05</span>
+            </div>
+            <div class="w-full bg-neutral-800 h-1 rounded-full overflow-hidden">
+              <div class="bg-rose-500 h-full w-2/5"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="font-bold text-sm text-neutral-100">Appointment Voice Agent</h4>
+          <p class="text-xs text-neutral-400 mt-1">Answers customer phone calls, checks slot availability, and sends SMS confirmation.</p>
+        </div>
+      </div>
+
+      <!-- Reel 02 -->
+      <div class="bg-neutral-950 border border-neutral-800 rounded-3xl p-4 flex flex-col justify-between text-white shadow-xl relative overflow-hidden group">
+        <div class="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-3">
+          <span class="bg-neutral-800/80 px-2 py-0.5 rounded-md text-white font-bold">Reel 02</span>
+          <i data-lucide="volume-2" class="w-3.5 h-3.5 text-neutral-400"></i>
+        </div>
+
+        <!-- Simulated Video Preview Box -->
+        <div class="aspect-[9/14] bg-neutral-900 rounded-2xl relative overflow-hidden flex flex-col justify-between p-4 border border-neutral-800">
+          <div class="space-y-2">
+            <span class="inline-block text-[10px] font-mono text-sky-400 bg-sky-950/70 border border-sky-800/60 px-2 py-0.5 rounded-full">
+              Pipeline Automation
+            </span>
+            <div class="text-xs font-bold text-neutral-200">
+              Lead Qualification & WhatsApp Routing
+            </div>
+          </div>
+
+          <!-- Central Play Simulation -->
+          <div class="flex flex-col items-center justify-center my-auto">
+            <div class="w-14 h-14 rounded-full bg-rose-600/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
+              <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
+            </div>
+            <span class="text-[11px] font-mono text-neutral-400 mt-2">See n8n & Make Workflow</span>
+          </div>
+
+          <!-- Video Progress Bar -->
+          <div class="space-y-1">
+            <div class="flex justify-between text-[9px] font-mono text-neutral-500">
+              <span>0:32</span>
+              <span>1:20</span>
+            </div>
+            <div class="w-full bg-neutral-800 h-1 rounded-full overflow-hidden">
+              <div class="bg-rose-500 h-full w-3/5"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="font-bold text-sm text-neutral-100">Outreach & CRM Sync</h4>
+          <p class="text-xs text-neutral-400 mt-1">Multi-step automation that qualifies form submissions and books sales discovery calls.</p>
+        </div>
+      </div>
+
+      <!-- Reel 03 -->
+      <div class="bg-neutral-950 border border-neutral-800 rounded-3xl p-4 flex flex-col justify-between text-white shadow-xl relative overflow-hidden group">
+        <div class="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-3">
+          <span class="bg-neutral-800/80 px-2 py-0.5 rounded-md text-white font-bold">Reel 03</span>
+          <i data-lucide="volume-2" class="w-3.5 h-3.5 text-neutral-400"></i>
+        </div>
+
+        <!-- Simulated Video Preview Box -->
+        <div class="aspect-[9/14] bg-neutral-900 rounded-2xl relative overflow-hidden flex flex-col justify-between p-4 border border-neutral-800">
+          <div class="space-y-2">
+            <span class="inline-block text-[10px] font-mono text-amber-400 bg-amber-950/70 border border-amber-800/60 px-2 py-0.5 rounded-full">
+              Full Stack App
+            </span>
+            <div class="text-xs font-bold text-neutral-200">
+              Modern E-Commerce & Inventory Sync
+            </div>
+          </div>
+
+          <!-- Central Play Simulation -->
+          <div class="flex flex-col items-center justify-center my-auto">
+            <div class="w-14 h-14 rounded-full bg-rose-600/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
+              <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
+            </div>
+            <span class="text-[11px] font-mono text-neutral-400 mt-2">Product Tour</span>
+          </div>
+
+          <!-- Video Progress Bar -->
+          <div class="space-y-1">
+            <div class="flex justify-between text-[9px] font-mono text-neutral-500">
+              <span>0:45</span>
+              <span>1:15</span>
+            </div>
+            <div class="w-full bg-neutral-800 h-1 rounded-full overflow-hidden">
+              <div class="bg-rose-500 h-full w-4/5"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="font-bold text-sm text-neutral-100">Live Web App Demo</h4>
+          <p class="text-xs text-neutral-400 mt-1">Responsive client platform with real-time checkout, cart storage, and speed tuning.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= LIVE WEBSITES & CLIENT WORK ================= -->
+  <section id="projects" class="py-16 px-4 max-w-5xl mx-auto">
+    <div class="mb-10">
+      <span class="text-xs font-mono font-bold uppercase tracking-widest text-neutral-500">// FEATURED BUILDS</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-950 mt-1">
+        Websites that are live right now.
+      </h2>
+      <p class="text-neutral-600 text-sm mt-2">Open them and see the speed and quality for yourself.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Project 1: Super Cutting Line Salon -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-neutral-300 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+        <div>
+          <!-- Top Link & Badge -->
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-neutral-500 bg-neutral-100 px-3 py-1 rounded-full">
+              supercuttinglinesalon.netlify.app
+            </span>
+            <a href="https://supercuttinglinesalon.netlify.app" target="_blank" class="w-9 h-9 rounded-full bg-rose-600 hover:bg-rose-700 text-white flex items-center justify-center transition-all group-hover:scale-110 shadow-sm" title="Open Website">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <h3 class="text-2xl font-bold text-neutral-950 mb-2">Super Cutting Line Salon</h3>
+          <p class="text-sm text-neutral-600 leading-relaxed mb-6">
+            A premium, modern business website developed for an upscale hair salon & grooming parlor. Built for client trust, visual service showcase, pricing clarity, and mobile booking.
+          </p>
+
+          <!-- Interactive Mockup Preview Card -->
+          <div class="bg-neutral-950 rounded-2xl p-4 text-white border border-neutral-800 shadow-inner mb-6 relative overflow-hidden">
+            <div class="flex items-center gap-1.5 pb-2 border-b border-neutral-800 mb-3 text-[10px] text-neutral-400 font-mono">
+              <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="ml-2 text-neutral-400">supercuttinglinesalon.netlify.app</span>
+            </div>
+            <div class="py-4 text-center">
+              <div class="text-xs uppercase tracking-widest text-emerald-400 font-bold mb-1">Production Ready</div>
+              <div class="text-sm font-semibold text-neutral-100">Salon & Grooming Portal</div>
+              <p class="text-[11px] text-neutral-400 mt-1">High conversion layout • Mobile optimized</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex flex-wrap gap-2 pt-2 border-t border-neutral-200">
+            <span class="text-xs bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-md font-mono">Netlify</span>
+            <span class="text-xs bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-md font-mono">Modern UI</span>
+            <span class="text-xs bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-md font-mono">Business Profile</span>
+            <span class="text-xs bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-md font-mono">SEO Ready</span>
+          </div>
+
+          <a href="https://supercuttinglinesalon.netlify.app" target="_blank" class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-rose-600 hover:text-rose-700">
+            <span>Launch Live Website</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2: TechNexa Store -->
+      <div class="bg-neutral-950 text-white rounded-3xl p-6 sm:p-8 border border-neutral-800 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+        <div>
+          <!-- Top Link & Badge -->
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-neutral-400 bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full">
+              technexastore.vercel.app
+            </span>
+            <a href="https://technexastore.vercel.app/" target="_blank" class="w-9 h-9 rounded-full bg-rose-600 hover:bg-rose-700 text-white flex items-center justify-center transition-all group-hover:scale-110 shadow-sm" title="Open Website">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <h3 class="text-2xl font-bold text-white mb-2">TechNexa Store</h3>
+          <p class="text-sm text-neutral-300 leading-relaxed mb-6">
+            A fast, modern e-commerce storefront for tech accessories, smart gadgets, and consumer electronics. Featuring instant category filtering, streamlined checkout, and responsive design.
+          </p>
+
+          <!-- Interactive Mockup Preview Card -->
+          <div class="bg-neutral-900 rounded-2xl p-4 text-white border border-neutral-800 shadow-inner mb-6 relative overflow-hidden">
+            <div class="flex items-center gap-1.5 pb-2 border-b border-neutral-800 mb-3 text-[10px] text-neutral-400 font-mono">
+              <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="ml-2 text-neutral-400">technexastore.vercel.app</span>
+            </div>
+            <div class="py-4 text-center">
+              <div class="text-xs uppercase tracking-widest text-sky-400 font-bold mb-1">E-Commerce Architecture</div>
+              <div class="text-sm font-semibold text-neutral-100">Next-Gen Tech Gadgets Store</div>
+              <p class="text-[11px] text-neutral-400 mt-1">Vercel Deployment • Fast Load Times</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex flex-wrap gap-2 pt-2 border-t border-neutral-800">
+            <span class="text-xs bg-neutral-900 text-neutral-300 px-2.5 py-1 rounded-md font-mono border border-neutral-800">Vercel</span>
+            <span class="text-xs bg-neutral-900 text-neutral-300 px-2.5 py-1 rounded-md font-mono border border-neutral-800">Next.js</span>
+            <span class="text-xs bg-neutral-900 text-neutral-300 px-2.5 py-1 rounded-md font-mono border border-neutral-800">E-Commerce</span>
+            <span class="text-xs bg-neutral-900 text-neutral-300 px-2.5 py-1 rounded-md font-mono border border-neutral-800">Tailwind</span>
+          </div>
+
+          <a href="https://technexastore.vercel.app/" target="_blank" class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-rose-400 hover:text-rose-300">
+            <span>Launch Live Store</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS / REVIEWS ================= -->
+  <section id="reviews" class="py-16 px-4 max-w-5xl mx-auto">
+    <div class="mb-10 text-center">
+      <span class="text-xs font-mono font-bold uppercase tracking-widest text-neutral-500">// SOCIAL PROOF</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-950 mt-1">
+        What clients say about working together.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Review 1 -->
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200/90 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-1 text-amber-500 mb-3">
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+          </div>
+          <p class="text-xs sm:text-sm text-neutral-700 leading-relaxed">
+            "Salman built an AI voice agent for our salon bookings that freed up 3 hours every single day. Calls get answered instantly even during rush hours."
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-neutral-100 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-neutral-900 text-white font-bold text-xs flex items-center justify-center">
+            SC
+          </div>
+          <div>
+            <div class="text-xs font-bold text-neutral-900">Salon Operations Lead</div>
+            <div class="text-[11px] text-neutral-500">Super Cutting Line</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200/90 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-1 text-amber-500 mb-3">
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+          </div>
+          <p class="text-xs sm:text-sm text-neutral-700 leading-relaxed">
+            "TechNexa Store was delivered fast and looks incredibly slick. The website speed and mobile experience helped us boost conversions immediately."
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-neutral-100 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-rose-600 text-white font-bold text-xs flex items-center justify-center">
+            TN
+          </div>
+          <div>
+            <div class="text-xs font-bold text-neutral-900">Founder</div>
+            <div class="text-[11px] text-neutral-500">TechNexa Store</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200/90 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-1 text-amber-500 mb-3">
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+          </div>
+          <p class="text-xs sm:text-sm text-neutral-700 leading-relaxed">
+            "TNS Agency set up our automated lead qualification pipeline in Make and WhatsApp. Every prospect gets followed up within 60 seconds."
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-neutral-100 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-neutral-800 text-white font-bold text-xs flex items-center justify-center">
+            MA
+          </div>
+          <div>
+            <div class="text-xs font-bold text-neutral-900">Growth Consultant</div>
+            <div class="text-[11px] text-neutral-500">Digital Scale Agency</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= HIGH CONVERTING FOOTER CTA ================= -->
+  <footer id="contact" class="bg-neutral-950 text-white pt-20 pb-12 px-4 border-t border-neutral-800">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      
+      <span class="inline-block text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/60 border border-emerald-800/80 px-3 py-1 rounded-full">
+        Ready for 24/7 automation?
+      </span>
+
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight max-w-2xl mx-auto leading-tight">
+        Got a process that should run itself?
+      </h2>
+
+      <p class="text-neutral-400 text-sm sm:text-base max-w-lg mx-auto">
+        Tell me what eats your team's time. I'll analyze your workflow and propose an AI agent or automated solution within 24 hours.
+      </p>
+
+      <!-- Contact Action Grid -->
+      <div class="pt-6 flex flex-wrap items-center justify-center gap-4">
+        <a href="https://wa.me/923287205940?text=Hello%20Salman,%20I%20want%20to%20discuss%20a%20project%20with%20TNS%20Agency" target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold text-sm px-6 py-3.5 rounded-full flex items-center gap-2 transition-all shadow-lg shadow-emerald-500/20 hover:scale-105">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Chat on WhatsApp (03287205940)</span>
+        </a>
+
+        <a href="mailto:salmankhan7288191@gmail.com" class="bg-neutral-800 hover:bg-neutral-700 text-white font-bold text-sm px-6 py-3.5 rounded-full flex items-center gap-2 transition-all border border-neutral-700 hover:scale-105">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          <span>salmankhan7288191@gmail.com</span>
+        </a>
+      </div>
+
+      <!-- Quick Contact Direct Form -->
+      <div class="mt-12 bg-neutral-900 border border-neutral-800 rounded-3xl p-6 sm:p-8 max-w-lg mx-auto text-left shadow-2xl">
+        <h3 class="text-sm font-bold text-white mb-1">Send a quick message</h3>
+        <p class="text-xs text-neutral-400 mb-4">Direct message straight to Salman Ahmad</p>
+        
+        <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-3">
+          <div>
+            <label class="block text-[11px] font-mono text-neutral-400 mb-1">Your Name</label>
+            <input type="text" required id="formName" placeholder="e.g. John Doe" class="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-emerald-500">
+          </div>
+          <div>
+            <label class="block text-[11px] font-mono text-neutral-400 mb-1">Your Email or WhatsApp</label>
+            <input type="text" required id="formContact" placeholder="e.g. user@gmail.com or +92..." class="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-emerald-500">
+          </div>
+          <div>
+            <label class="block text-[11px] font-mono text-neutral-400 mb-1">What do you want to build?</label>
+            <textarea id="formMessage" rows="3" required placeholder="AI Voice Agent, WhatsApp Bot, Business Website, etc." class="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-emerald-500 resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-white hover:bg-neutral-100 text-neutral-950 font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-md">
+            <span>Send Inquiry</span>
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          </button>
+          <div id="formSuccess" class="hidden text-center text-xs text-emerald-400 font-semibold pt-2">
+            ✓ Message received! Opening WhatsApp chat for instant reply...
+          </div>
+        </form>
+      </div>
+
+      <!-- Copyright & Brand info -->
+      <div class="pt-16 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+        <div class="flex items-center gap-2">
+          <img src="assets/tns-logo.jpg" class="w-5 h-5 rounded-full object-cover">
+          <span>© 2026 TNS Agency. All rights reserved.</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="#hero" class="hover:text-white transition-colors">Back to Top ↑</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    /* -------------------------------------------------------------
+       1. WORD BY WORD SCROLL REVEAL IMPLEMENTATION
+       ------------------------------------------------------------- */
+    const revealContainer = document.getElementById('revealText');
+    const fullText = revealContainer.innerText.trim();
+    revealContainer.innerHTML = '';
+
+    // Split text into word spans
+    const words = fullText.split(/\s+/);
+    const wordSpans = words.map((word) => {
+      const span = document.createElement('span');
+      span.className = 'reveal-word';
+      span.innerText = word;
+      revealContainer.appendChild(span);
+      return span;
+    });
+
+    function updateWordReveal() {
+      const rect = revealContainer.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Calculate how far through the reveal section the user has scrolled
+      const start = windowHeight * 0.85;
+      const end = windowHeight * 0.2;
+      
+      let progress = (start - rect.top) / (start - end);
+      progress = Math.max(0, Math.min(1, progress));
+
+      const totalWords = wordSpans.length;
+      const activeWordCount = Math.floor(progress * totalWords);
+
+      wordSpans.forEach((span, idx) => {
+        if (idx <= activeWordCount) {
+          span.classList.add('active');
+        } else {
+          span.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateWordReveal, { passive: true });
+    updateWordReveal();
+
+    /* -------------------------------------------------------------
+       2. INTERACTIVE PHONE CALL POPUP LOGIC
+       ------------------------------------------------------------- */
+    let callTimerInterval = null;
+    let secondsElapsed = 0;
+    let audioCtx = null;
+
+    // Gentle high-tech sound synthesizer using Web Audio API
+    function playBeep(freq = 600, duration = 0.1) {
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {
+        // audio context blocked or unsupported
+      }
+    }
+
+    function handleAcceptCall() {
+      playBeep(880, 0.15);
+      setTimeout(() => playBeep(1200, 0.2), 150);
+
+      document.getElementById('incomingCallView').classList.add('hidden');
+      const connectedView = document.getElementById('connectedCallView');
+      connectedView.classList.remove('hidden');
+      connectedView.classList.add('flex');
+
+      document.getElementById('callStatusIndicator').innerHTML = `
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+        ACTIVE SESSION
+      `;
+
+      // Start timer
+      secondsElapsed = 0;
+      clearInterval(callTimerInterval);
+      callTimerInterval = setInterval(() => {
+        secondsElapsed++;
+        const mins = Math.floor(secondsElapsed / 60);
+        const secs = (secondsElapsed % 60).toString().padStart(2, '0');
+        document.getElementById('callTimer').innerText = `Connected ${mins}:${secs}`;
+      }, 1000);
+    }
+
+    function handleDeclineCall() {
+      playBeep(350, 0.25);
+      const card = document.getElementById('phoneCard');
+      card.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        card.style.transform = 'scale(1)';
+      }, 200);
+    }
+
+    function handleEndCall() {
+      playBeep(400, 0.2);
+      clearInterval(callTimerInterval);
+
+      document.getElementById('connectedCallView').classList.add('hidden');
+      document.getElementById('connectedCallView').classList.remove('flex');
+      document.getElementById('incomingCallView').classList.remove('hidden');
+
+      document.getElementById('callStatusIndicator').innerHTML = `
+        <span class="w-1.5 h-1.5 rounded-full bg-neutral-500 animate-ping"></span>
+        INCOMING CALL
+      `;
+    }
+
+    function selectCallOption(sectionId) {
+      playBeep(750, 0.1);
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // subtle highlight animation on target card
+        target.style.transition = 'box-shadow 0.4s ease, transform 0.4s ease';
+        target.style.boxShadow = '0 0 40px rgba(37, 99, 235, 0.35)';
+        target.style.transform = 'scale(1.02)';
+        setTimeout(() => {
+          target.style.transform = '';
+          target.style.boxShadow = '';
+        }, 1200);
+      }
+    }
+
+    /* -------------------------------------------------------------
+       3. CONTACT FORM HANDLER
+       ------------------------------------------------------------- */
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('formName').value;
+      const contact = document.getElementById('formContact').value;
+      const message = document.getElementById('formMessage').value;
+
+      document.getElementById('formSuccess').classList.remove('hidden');
+
+      const whatsappText = `Hi Salman, I reached out via your website portfolio:\nName: ${name}\nContact: ${contact}\nRequirement: ${message}`;
+      const url = `https://wa.me/923287205940?text=${encodeURIComponent(whatsappText)}`;
+
+      setTimeout(() => {
+        window.open(url, '_blank');
+      }, 800);
+    }
+
+    /* -------------------------------------------------------------
+       4. STICKY STACKING CARDS DEPTH OFFSET
+       ------------------------------------------------------------- */
+    const stackCards = document.querySelectorAll('.stack-card');
+    stackCards.forEach((card, index) => {
+      // Offset top position slightly so lower cards peak nicely
+      card.style.top = `${100 + index * 24}px`;
+    });
+  </script>
+</body>
+</html>
